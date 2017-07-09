@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # before(:each) do
+  # 	@user = User.create()
+  # end
+
+  it "has many pictures" do
+  	expect(@user.pictures.count).to eq(5)
+  end
+
 end
