@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
 
 		it "is invalid without a name" do
 			@user = User.new
-			expect (@user.save).to be_false
+			expect (@user.save).to be_falsey
 		end
 
 	end

@@ -12,7 +12,7 @@ RSpec.describe Tag, type: :model do
   describe "validations: " do
   	it "has a name" do
   		@tag = Tag.new
-  		expect(@tag.save).to be_false
+  		expect(@tag.save).to be_falsey
   	end
   end
 end
