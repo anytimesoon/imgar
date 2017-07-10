@@ -5,12 +5,13 @@ RSpec.describe Comment, type: :model do
 
   describe "associations: " do
   	it "belongs to a user" do
-	  	t = Comment.reflect_on_association(:users)
+	  	t = Comment.reflect_on_association(:user)
+	  	# binding.pry
     	expect(t.macro).to eq(:belongs_to)
   	end
 
-  	it "has many comments" do
-  		t = Comment.reflect_on_association(:pictures)
+  	it "belongs to a picture" do
+  		t = Comment.reflect_on_association(:picture)
     	expect(t.macro).to eq(:belongs_to)
   	end
   end
@@ -18,7 +19,7 @@ RSpec.describe Comment, type: :model do
   describe "validations: " do
   	it "has content" do
   		@comment = Comment.new
-  		expect(@comment.save).to be_false
+  		expect(@comment.save).to be_falsey
   	end
   end
 end
