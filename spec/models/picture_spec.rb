@@ -10,12 +10,13 @@ RSpec.describe Picture, type: :model do
   	end
 
   	it "has many comments" do
-  		t = Picture.reflect_on_association(:comment)
+  		t = Picture.reflect_on_association(:comments)
+      # binding.pry
     	expect(t.macro).to eq(:has_many)
   	end
 
   	it "has many tags" do
-  		t = Picture.reflect_on_association(:tag)
+  		t = Picture.reflect_on_association(:tags)
     	expect(t.macro).to eq(:has_many)
   	end
   end
