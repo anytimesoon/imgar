@@ -16,4 +16,14 @@ class Picture < ApplicationRecord
 	validates :path, presence: true
   validates_attachment_content_type :path, content_type: /\Aimage\/.*\z/
 
+  def tags_attributes=(tag_names)
+		binding.pry
+		names = tag_names['0']['name'].split(', ')
+
+    names.each do |name|
+      tag = Tag.find_or_create_by(name: name)
+      self.tags << tag
+    end
+  end
+
 end

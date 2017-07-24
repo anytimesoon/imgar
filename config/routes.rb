@@ -6,4 +6,5 @@ Rails.application.routes.draw do
  	get 'users/:id' => 'users#show', as: :user
 
  	resources :pictures, except: [:index]
+ 	resources :tags, only: [:show]
 end
