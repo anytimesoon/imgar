@@ -10,7 +10,7 @@ class PicturesController < ApplicationController
 	def create
 		@picture = Picture.new(picture_params)
 		@picture.user_id = current_user.id
-		
+
 		if @picture.save
 			redirect_to picture_path(@picture)
 		else
@@ -26,6 +26,6 @@ class PicturesController < ApplicationController
 	private
 
 	def picture_params
-		params.require(:picture).permit(:path)
+		params.require(:picture).permit(:title, :path, tags_attributes: [:name])
 	end
 end

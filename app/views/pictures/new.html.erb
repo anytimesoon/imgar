@@ -11,7 +11,13 @@
 	</div>
 
 	<div>
-		
+		<h2>Add tags</h2>
+		<%= f.fields_for :tags do |tag| %>
+			<div>
+				<%= tag.text_field :name %>
+				<%= tag.label 'seperate each tag with a comma' %>
+			</div>
+		<% end %>
 	</div>
 	<%= f.submit 'Upload' %>
 <%end%>
