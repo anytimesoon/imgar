@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170724164440) do
   end
 
   create_table "pictures", force: :cascade do |t|
+    t.string "title"
     t.integer "rating"
     t.integer "user_id"
     t.datetime "created_at", null: false
