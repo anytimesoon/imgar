@@ -4,8 +4,16 @@ class Picture < ApplicationRecord
 	has_many :picture_tags
 	has_many :tags, through: :picture_tags
 
-	validates :path, presence: true
+	has_attached_file :path, styles: { medium: "500x500>", small: "300x300>", thumb: "100x100>" }, 
+										default_url: "/images/:style/missing.png",
+										path: ":rails_root/app/assets/images/:username/:style/:basename.:extension",
+										url: ":username/:style/:basename.:extension"
 
-	has_attached_file :path, styles: { medium: "500x500>", small: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+	Paperclip.interpolates('username') do |attachment, style|
+		attachment.instance.user.name
+	end
+
+	validates :path, presence: true
   validates_attachment_content_type :path, content_type: /\Aimage\/.*\z/
+
 end
