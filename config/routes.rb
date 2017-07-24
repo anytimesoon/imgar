@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   devise_for :users#, :controllers => { registrations: 'registrations' }
 
  	get 'users/:id' => 'users#show', as: :user
+
+ 	resources :pictures, except: [:index]
 end
