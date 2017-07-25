@@ -17,13 +17,20 @@ class Picture < ApplicationRecord
   validates_attachment_content_type :path, content_type: /\Aimage\/.*\z/
 
   def tags_attributes=(tag_names)
-		binding.pry
 		names = tag_names['0']['name'].split(', ')
 
     names.each do |name|
-      tag = Tag.find_or_create_by(name: name)
+    	stripped_name = strip_tag_name(name)
+      tag = Tag.find_or_create_by(name: stripped_name)
+
       self.tags << tag
     end
+  end
+
+  private
+
+  def strip_tag_name(tag_name)
+  	tag_name.gsub(/[.!?();:%$@*&{}|^\[\]`#~\/\\]/, '')
   end
 
 end
