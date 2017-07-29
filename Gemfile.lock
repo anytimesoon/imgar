@@ -128,6 +128,8 @@ GEM
       slop (~> 3.4)
     public_suffix (2.0.5)
     puma (3.9.1)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -242,6 +244,7 @@ DEPENDENCIES
   paperclip (~> 5.0.0)
   pry
   puma (~> 3.7)
+  pundit
   rails (~> 5.1.2)
   rspec-rails
   sass-rails (~> 5.0)

@@ -1,10 +1,13 @@
 class PicturesController < ApplicationController
+	after_action :verify_authorized, except: [:index, :show]
+
 	def index
 		@pictures = Picture.all
 	end
 
 	def new
 		@picture = Picture.new
+		authorize @picture
 	end
 
 	def create
@@ -17,6 +20,8 @@ class PicturesController < ApplicationController
 			flash[:notice] = "Something went wrong, please try again"
 			redirect_to request.referer
 		end
+
+		authorize @picture
 	end
 
 	def show
@@ -27,5 +32,10 @@ class PicturesController < ApplicationController
 
 	def picture_params
 		params.require(:picture).permit(:title, :path, tags_attributes: [:name])
+	end
+
+	def user_not_authorized
+	  flash[:alert] = "You need to be signed in to upload stuff."
+	  redirect_to new_user_session_path
 	end
 end
