@@ -1,1 +1,9 @@
-_show.html.erb
+<h3>Current rating: <%= @rating.average %></h3>
+
+<% unless current_user.has_voted?(@rating) %>
+	<%= form_for @rating, url: picture_ratings_update_path(@picture) do |f| %>
+		<%= f.select :value, (1 .. 10) %>
+
+		<%= f.submit "Rate this image" %>
+	<% end %>
+<% end %>

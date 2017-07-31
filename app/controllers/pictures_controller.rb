@@ -13,6 +13,7 @@ class PicturesController < ApplicationController
 	def create
 		@picture = Picture.new(picture_params)
 		@picture.user_id = current_user.id
+		@picture.add_rating
 
 		if @picture.save
 			redirect_to picture_path(@picture)
@@ -26,6 +27,7 @@ class PicturesController < ApplicationController
 	def show
 		@picture = Picture.find(params[:id])
 		@comment = Comment.new
+		@rating = @picture.rating
 	end
 
 	def user_pictures
