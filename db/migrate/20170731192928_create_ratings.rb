@@ -3,8 +3,8 @@ class CreateRatings < ActiveRecord::Migration[5.1]
     create_table :ratings do |t|
     	t.integer :value
     	t.integer :user_id
-    	t.integer :picutre_id
-    	
+    	t.integer :picture_id
+
       t.timestamps
     end
   end

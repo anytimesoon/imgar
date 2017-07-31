@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20170731192928) do
 
   create_table "pictures", force: :cascade do |t|
     t.string "title"
-    t.integer "rating"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170731192928) do
   create_table "ratings", force: :cascade do |t|
     t.integer "value"
     t.integer "user_id"
-    t.integer "picutre_id"
+    t.integer "picture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
