@@ -1,2 +1,11 @@
 <h1><%= @user.name %></h1>
 
+<%= link_to "See all pictures posted by #{@user.name}", user_pictures_path(@user) %>
+
+<h2>Comments</h2>
+
+<% @user.comments.each do |comment| %>
+	<p>Posted on: <%= link_to comment.picture.title, picture_path(comment.picture)  %><br>
+	<%= comment.content %></p>
+	<sup>on <%= readable_timestamp(comment) %></sup> 
+<% end %>

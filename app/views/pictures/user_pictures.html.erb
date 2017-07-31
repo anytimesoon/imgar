@@ -1,0 +1,8 @@
+<h1><%= @user.name %>'s Picutres</h1>
+
+<% @pictures.each do |pic| %>
+	<div>
+		<h3><%= pic.title %></h3>
+		<%= link_to (image_tag pic.path.url(:medium)), picture_path(pic) %>
+	</div>
+<% end %>
