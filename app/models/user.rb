@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :pictures
   has_many :comments
+  has_many :ratings
 
   validates :name, presence: true, uniqueness: true
   validates_format_of :name, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
