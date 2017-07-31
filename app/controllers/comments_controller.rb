@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
 	def create
-		binding.pry
 		@comment = Comment.new(comment_params)
 		@picture = Picture.find(params[:picture_id])
 
@@ -13,6 +12,8 @@ class CommentsController < ApplicationController
 			flash[:notice] = "Something went wrong, please try again"
 			redirect_to request.referer
 		end
+
+		authorize @comment
 	end
 
 	private

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
  	get 'users/:id' => 'users#show', as: :user
 
  	resources :pictures, except: [:index] do
- 		# get '/:title' => 'pictures#full', param: :title
  		post 'comments/create' => 'comments#create'
  	end
 

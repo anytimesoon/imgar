@@ -1,0 +1,5 @@
+<% if current_user %>
+	Leave a comment
+<% else %>
+	<%= link_to 'Sign in to leave a comment', new_user_session_path %>
+<% end %>
