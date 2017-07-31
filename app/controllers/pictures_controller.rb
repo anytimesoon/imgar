@@ -18,7 +18,7 @@ class PicturesController < ApplicationController
 			redirect_to picture_path(@picture)
 		else
 			flash[:notice] = "Something went wrong, please try again"
-			redirect_to request.referer
+			render :new
 		end
 
 		authorize @picture

@@ -14,6 +14,7 @@ class Picture < ApplicationRecord
 	end
 
 	validates :path, presence: true
+	validates :title, presence: true
   validates_attachment_content_type :path, content_type: /\Aimage\/.*\z/
 
   def tags_attributes=(tag_names)
