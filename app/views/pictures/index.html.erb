@@ -1,2 +1,11 @@
 <h1>Welcome to Imgar, the image hosting site</h1>
 
+<p>Check out the <%= link_to("top rated", top_pictures_path) %>
+
+<% @pictures.each do |pic| %>
+	<div>
+		<h3><%= pic.title %></h3>
+		<%= link_to (image_tag pic.path.url(:medium)), picture_path(pic) %>
+		<p>Posted by: <%= link_to pic.user.name, user_path(pic.user) %>
+	</div>
+<% end %>
