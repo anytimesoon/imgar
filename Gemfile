@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.5'
 # Use devise for authorisation
 gem 'devise'
 gem 'pundit'
+gem 'omniauth'
+gem 'omniauth-facebook'
+# gem 'omniauth-twitter'
+# gem 'omniauth-google'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'paperclip', '~> 5.0.0'
