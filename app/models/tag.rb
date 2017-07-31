@@ -11,7 +11,7 @@ class Tag < ApplicationRecord
 	end
 
 	def slugify
-		self.slug = name.gsub(' ', '_')
+		self.slug = name.gsub(' ', '_').downcase
 	end
 
 end
