@@ -17,7 +17,6 @@ class PicturesController < ApplicationController
 		if @picture.save
 			redirect_to picture_path(@picture)
 		else
-			flash[:notice] = "Something went wrong, please try again"
 			render :new
 		end
 
