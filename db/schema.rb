@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731192928) do
+ActiveRecord::Schema.define(version: 20170731211921) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170731192928) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer "value"
+    t.integer "total_votes"
     t.integer "user_id"
     t.integer "picture_id"
     t.datetime "created_at", null: false
@@ -53,8 +54,16 @@ ActiveRecord::Schema.define(version: 20170731192928) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_ratings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "rating_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.integer "rating_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

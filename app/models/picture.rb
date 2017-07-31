@@ -1,7 +1,7 @@
 class Picture < ApplicationRecord
 	belongs_to :user
 	has_many :comments
-	has_many :ratings
+	has_one :rating
 	has_many :picture_tags
 	has_many :tags, through: :picture_tags
 
@@ -27,6 +27,14 @@ class Picture < ApplicationRecord
 
       self.tags << tag
     end
+  end
+
+  def add_rating
+  	rating = self.build_rating(value: 50)
+  	user = User.find(self.user_id)
+  	rating.users << user
+  	rating.total_votes = 1
+  	rating.save
   end
 
   private
