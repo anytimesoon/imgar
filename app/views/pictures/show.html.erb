@@ -1,6 +1,6 @@
 <h1><%= @picture.title %></h1>
 
-<%= image_tag @picture.path.url(:medium) %>
+<%= link_to (image_tag @picture.path.url(:medium)), asset_path(@picture.path.url) %>
 
 <h2>Tags</h2>
 <% @picture.tags.each do |tag| %>
