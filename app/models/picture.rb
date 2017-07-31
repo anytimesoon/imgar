@@ -30,10 +30,9 @@ class Picture < ApplicationRecord
   end
 
   def add_rating
-  	rating = self.build_rating(value: 50)
+  	rating = self.build_rating
   	user = User.find(self.user_id)
   	rating.users << user
-  	rating.total_votes = 1
   	rating.save
   end
 

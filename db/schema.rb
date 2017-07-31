@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20170731211921) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "value"
-    t.integer "total_votes"
+    t.integer "value", default: 100
+    t.integer "total_votes", default: 1
     t.integer "user_id"
     t.integer "picture_id"
     t.datetime "created_at", null: false
