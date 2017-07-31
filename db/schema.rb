@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731144355) do
+ActiveRecord::Schema.define(version: 20170731192928) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20170731144355) do
     t.string "path_content_type"
     t.integer "path_file_size"
     t.datetime "path_updated_at"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "value"
+    t.integer "user_id"
+    t.integer "picutre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|
