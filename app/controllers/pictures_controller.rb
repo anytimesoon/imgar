@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-	after_action :verify_authorized, except: [:index, :show, :user_pictures]
+	after_action :verify_authorized, except: [:index, :show, :user_pictures, :top]
 
 	def index
 		@pictures = Picture.all
@@ -33,6 +33,10 @@ class PicturesController < ApplicationController
 	def user_pictures
 		@user = User.find(params[:user_id])
 		@pictures = @user.pictures
+	end
+
+	def top
+		@pictures = Picture.top_rated
 	end
 
 	private
