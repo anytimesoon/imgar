@@ -5,9 +5,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
   	get 'pictures' => 'pictures#user_pictures', as: 'pictures'
+  	get 'pictures/new'=> 'pictures#new'
   end
 
- 	resources :pictures, except: [:index] do
+ 	get 'pictures/top' => 'pictures#top'
+
+ 	resources :pictures, except: [:index, :new] do
  		post 'comments/create' => 'comments#create'
  		patch 'ratings/update' => 'ratings#update'
  	end
