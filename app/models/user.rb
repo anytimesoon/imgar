@@ -47,8 +47,8 @@ class User < ApplicationRecord
     end
   end
 
-  def has_voted?(rating)
-    self.ratings.include?(rating)
+  def has_not_voted?(rating)
+    !self.ratings.include?(rating)
   end
 end
 

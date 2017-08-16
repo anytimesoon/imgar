@@ -1,6 +1,6 @@
 <h3>Current rating: <%= @rating.average %></h3>
 
-<% unless current_user.has_voted?(@rating) %>
+<% if current_user && current_user.has_not_voted?(@rating) %>
 	<%= form_for @rating, url: picture_ratings_update_path(@picture) do |f| %>
 		<%= f.select :value, (1 .. 10) %>
 
