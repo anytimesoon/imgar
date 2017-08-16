@@ -1,5 +1,7 @@
 <h1>Welcome to Imgar, the image hosting site</h1>
 
-<p>Check out the <%= link_to("top rated", pictures_top_path) %>
+<% if @pictures.count > 0 %>
+	<p>Check out the <%= link_to("top rated", pictures_top_path) %></p>
+<% end %>
 
 <%= render 'list' %>
