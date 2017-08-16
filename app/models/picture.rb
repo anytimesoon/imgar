@@ -36,6 +36,10 @@ class Picture < ApplicationRecord
   	rating.save
   end
 
+  def self.top_rated
+    self.joins(:rating).order('ratings.value')
+  end
+
   private
 
   def strip_tag_name(tag_name)
